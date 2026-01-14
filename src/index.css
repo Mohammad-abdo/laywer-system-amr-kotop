@@ -1,0 +1,106 @@
+/* استيراد خطوط Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* الخط الأساسي للغة الإنجليزية (أو باقي اللغات) */
+  html *:not(i) {
+    font-family: "Titillium Web", sans-serif;
+  }
+
+  /* الخط العربي فقط للغة العربية */
+  html:lang(ar) *:not(i),
+  html[lang^="ar"] *:not(i),
+  [dir="rtl"] *:not(i) {
+    font-family: "Amiri", serif !important;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+  
+  [dir="ltr"] {
+    direction: ltr;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6;
+  }
+
+  /* Dropdown Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .slide-in-from-top-2 {
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Custom Scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #1f2937;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
+}
